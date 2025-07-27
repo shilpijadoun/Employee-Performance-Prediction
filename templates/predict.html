@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Predict Productivity</title>
+    <!-- Bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+    <div class="container mt-5">
+        <div class="card shadow-lg p-4">
+            <h2 class="text-center mb-4 text-primary"> Employee Productivity Prediction</h2>
+            <form action="/submit" method="POST">
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label class="form-label">Team</label>
+                        <input type="number" name="team" class="form-control" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Targeted Productivity</label>
+                        <input type="number" step="0.01" name="targeted_productivity" class="form-control" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">SMV</label>
+                        <input type="number" step="0.01" name="smv" class="form-control" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">WIP</label>
+                        <input type="number" name="wip" class="form-control" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Over Time</label>
+                        <input type="number" name="over_time" class="form-control" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Incentive</label>
+                        <input type="number" name="incentive" class="form-control" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Idle Time</label>
+                        <input type="number" name="idle_time" class="form-control" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Idle Men</label>
+                        <input type="number" name="idle_men" class="form-control" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Style Changes</label>
+                        <input type="number" name="no_of_style_change" class="form-control" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">No of Workers</label>
+                        <input type="number" name="no_of_workers" class="form-control" required>
+                    </div>
+                </div>
+                <div class="text-center mt-4">
+                   <button type="submit" class="btn btn-lg" style="background-color: #e169ff; color: white;">Predict</button>
+
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

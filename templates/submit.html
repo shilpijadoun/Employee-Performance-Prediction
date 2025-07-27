@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="result-container">
+        <h1>🔍 Prediction Result</h1>
+        <p class="result-text">Predicted Actual Productivity:</p>
+        <h2 class="prediction-score">{{ prediction }}</h2>
+        <a href="/" class="custom-purple-button">Back to Home</a>
+
+    </div>
+</body>
+</html>
