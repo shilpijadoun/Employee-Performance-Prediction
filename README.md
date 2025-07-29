@@ -52,3 +52,4 @@ To assist garment industry managers in making **data-driven decisions** by predi
    ```bash
    
    cd garment-productivity-predictor"# Employee-Performance-Prediction" 
+https://github.com/shilpijadoun/Employee-Performance-Prediction.git

@@ -2,10 +2,10 @@ from flask import Flask, render_template, request
 import numpy as np
 import joblib
 
-# Load model
+# Load the trained model
 model = joblib.load('model_rf_10features.pkl')
 
-# Create Flask app
+# Create the Flask app
 app = Flask(__name__)
 
 @app.route('/')
@@ -19,7 +19,7 @@ def predict():
 @app.route('/submit', methods=['POST'])
 def submit():
     if request.method == 'POST':
-        # Collect form data
+        # Collect input data from form
         team = int(request.form['team'])
         targeted_productivity = float(request.form['targeted_productivity'])
         smv = float(request.form['smv'])
@@ -31,16 +31,24 @@ def submit():
         no_of_style_change = int(request.form['no_of_style_change'])
         no_of_workers = float(request.form['no_of_workers'])
 
-        # Prepare final input for model
+        # Prepare data for model prediction
         final_input = np.array([[team, targeted_productivity, smv, wip,
                                  over_time, incentive, idle_time, idle_men,
                                  no_of_style_change, no_of_workers]])
 
-        # Predict and round the result
+        # Predict the productivity
         prediction = round(model.predict(final_input)[0], 2)
 
-        # Render styled submit.html with prediction result
-        return render_template('submit.html', prediction=prediction)
+        # Determine productivity level
+        if prediction >= 0.75:
+            level = "High Productive"
+        elif prediction >= 0.5:
+            level = "Medium Productive"
+        else:
+            level = "Low Productive"
+
+        # Render the result page with prediction and level
+        return render_template('submit.html', prediction=prediction, level=level)
 
 @app.route('/about')
 def about():
